@@ -1,0 +1,16 @@
+fragment RepoDetails on Repository {
+    name
+}
+
+query AllRepos {
+    viewer {
+        login
+        repositories(last: 5) {
+            edges{
+                node {
+                    ...RepoDetails
+                }
+            }
+        }
+    }
+}
